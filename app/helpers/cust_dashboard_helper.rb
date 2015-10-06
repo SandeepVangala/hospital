@@ -1,0 +1,2 @@
+module CustDashboardHelper
+end

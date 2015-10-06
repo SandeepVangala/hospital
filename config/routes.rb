@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  get 'cust_dashboard/index'
+
+  get 'recption_dashboard/index'
+
+  get 'doc_dashboard/index'
+
   devise_for :users
+  
+  # root 'doc_dashboard#index'
+  root :to => redirect("/users/sign_up")
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
