@@ -1,2 +1,20 @@
-<h1>CustDashboard#index</h1>
-<p>Find me in app/views/cust_dashboard/index.html.erb</p>
+
+
+<table class="simple" style="width:100%" border="1">
+  <thead>
+    <tr>
+      <th> Pet Name </th>
+      <th> Date of Appointment </th>
+      <th> Reason </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @current_user_pets.each do |pet| %>
+  <tr>
+  	<td><%= pet.name %></td>
+		<td><%= pet.appointments.last.date_of_visit %></td>
+		<td><%= pet.appointments.last.reason %></td>
+	</tr>
+	<% end %>
+  </tbody>
+ </table>

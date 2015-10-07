@@ -27,5 +27,21 @@ $("#new_user").validate({
       },
     }
   });
+
+$("#appointment_form").validate({
+    rules: {
+      customer_id: {
+        required: true,
+         digits: true
+      },
+      pet_id: {
+        required: true,
+         digits: true
+      },
+      "user_id[0]": {
+        required: true
+      }
+    }
+  });
 });
 

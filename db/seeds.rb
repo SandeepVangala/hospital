@@ -10,7 +10,7 @@ Role.create(:title=>"Receptionist") if !Role.exists?(["title = ?","Receptionist"
 Role.create(:title=>"Customer") if !Role.exists?(["title = ?","Customer"])
 
 #doctor user
-params = {"name"=>"venkat", 
+params_doc = {"name"=>"venkat", 
 					"address"=>"test1234", 
 					"city"=>"test", 
 					"state"=>"test`", 
@@ -20,28 +20,39 @@ params = {"name"=>"venkat",
 					"email"=>"doc_details@gmail.com", 
 					"password"=>"test1234", 
 					"password_confirmation"=>"test1234"}
-a= User.create(params)
+a= User.create(params_doc)
 role = Role.find_by_id 1
 a.roles << role
 
 
 #reception user
-params = { 
+params_rec = { 
 					"email"=>"recep_details1@gmail.com", 
 					"password"=>"test1234", 
 					"password_confirmation"=>"test1234"}
-c= User.create(params)
+c= User.create(params_rec)
 role = Role.find_by_id 2
 c.roles << role
 
 
 #customer user
-params = { 
+params_cust = { 
 					"email"=>"curst_details1@gmail.com", 
 					"password"=>"test1234", 
 					"password_confirmation"=>"test1234"}
-b= User.create(params)
+b= User.create(params_cust)
 role = Role.find_by_id 3
 b.roles << role
 
 
+#pet
+params1 = { 
+					"name"=>"jimmy", 
+					"pet_type"=>"dog", 
+					"breed"=>"xyz",
+					"age" => 4,
+					"weight" => 4,
+					"user_id" => 3
+				}
+
+b= Pet.create(params1)

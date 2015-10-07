@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'cust_dashboard/index'
 
   get 'recption_dashboard/index'
-
+  post '/create_appointment', to: 'recption_dashboard#create_appointment', as: :create_appointment
   get 'doc_dashboard/index'
 
   devise_for :users

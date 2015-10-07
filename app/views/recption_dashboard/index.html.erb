@@ -1,2 +1,37 @@
-<h1>RecptionDashboard#index</h1>
-<p>Find me in app/views/recption_dashboard/index.html.erb</p>
+<%= javascript_include_tag "user"%>
+
+<h2>Appointment</h2>
+
+<div class="container" style="width: 600px;">
+  <%= form_tag('/create_appointment', remote: true, :id=> "appointment_form") do%>
+    <div class="field">
+    <label for="user_name">User type</label><br />
+     <%= collection_select :appointment, :doctor_id, User.get_doctors, :id, :name, {:include_blank => 'Select doctors'}, {:class => 'form-control'}%>
+    </div>
+    <div class="field">
+      <label for="pet_id">Pet Id</label><br />
+      <input class="form-control" type="text" name="appointment[pet_id]" id="pet_id" /> 
+    </div>
+
+   <div class="field">
+      <label for="date_of_visit">Date of Visit</label><br />
+      <input class="datepicker form-control" type="text" name="appointment[date_of_visit]" id="date_of_visit" /> 
+    </div>
+
+    <div class="clearfix" style="margin-bottom: 15px;"></div>
+
+    <div class="actions">
+      <input type="submit" class="btn btn-primary">
+    </div>
+  <% end %>
+</div>
+
+
+<script type="text/javascript">
+  $('.datepicker').datepicker({
+      maxDate: 0,
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: 'dd-mm-yy'
+  });
+</script>
